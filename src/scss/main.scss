@@ -1,0 +1,27 @@
+@import "./vars";
+@import "./font";
+@import "./header";
+@import "./search";
+@import "./photo-drag";
+@import "./results";
+@import "./button";
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    outline: none;
+    font-family: "Montserrat", Roboto, system-ui, Tahoma, sans-serif;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    color: $MAIN_GRAY;
+}
+a {
+    text-decoration: none;
+}

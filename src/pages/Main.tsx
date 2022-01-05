@@ -1,8 +1,20 @@
 import React from 'react';
 
-const Main: React.FC = () => {
+import { AddPhoto, Header, Search } from '../components';
+
+import combined_shape from '../assets/img/combined_shape.png'
+
+
+const Main: React.FC = (): JSX.Element => {
     return (
-        <header className="header"></header>
+        <>
+            <Header />
+            <Search
+                icon={combined_shape}
+                description='Search by any name, category, SKU or keyword.'
+            />
+            <AddPhoto />
+        </>
     );
 };
 

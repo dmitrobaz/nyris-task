@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    background: $BGC_HEADER;
+    height: 48px;
+    max-width: 1920px;
+    .logo {
+        padding: 9.48px 28px;
+        background: $BGC_HEADER_ICON;
+    }
+}

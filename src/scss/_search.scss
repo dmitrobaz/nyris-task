@@ -1,0 +1,40 @@
+.language-icon {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 40px;
+}
+
+.search {
+    position: relative;
+    &-wrapper {
+        margin: 96px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &-button {
+        position: absolute;
+        background-color: $BGC_BUTTON_SEARCH;
+        padding: 16px;
+        border-radius: 50%;
+        top: 8px;
+        right: 8px;
+    }
+    &-descr {
+        margin: 40px 0 168px 0;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+    }
+    &-input {
+        height: 64px;
+        border: none;
+        border-radius: 32px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 32px;
+        padding: 16px 24px;
+        min-width: 960px;
+    }
+}
