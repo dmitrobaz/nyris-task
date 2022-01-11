@@ -6,13 +6,11 @@ import Router from './Router';
 
 import './scss/main.scss';
 
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Router />
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
-

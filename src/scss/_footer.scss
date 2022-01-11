@@ -1,0 +1,34 @@
+@mixin footerWrapper {
+    background: #f3f3f5;
+    border: 1px solid #e9e9ec;
+    padding: 16px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.137143px;
+    color: #2b2c46;
+    margin-top: 15px;
+    &-text {
+        flex: 1;
+        @include footerWrapper;
+        max-height: 50px;
+        white-space: nowrap;
+        overflow: auto;
+    }
+    &-count-results {
+        @include footerWrapper;
+    }
+    &-button {
+        border: none;
+    }
+    &-link {
+        color: #3e36dc;
+    }
+}

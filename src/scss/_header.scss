@@ -1,10 +1,21 @@
+.fixed-header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
 .header {
-    display: flex;
-    background: $BGC_HEADER;
-    height: 48px;
-    max-width: 1920px;
-    .logo {
-        padding: 9.48px 28px;
-        background: $BGC_HEADER_ICON;
+  display: flex;
+  background: $BGC_HEADER;
+  height: 48px;
+  .logo {
+    padding: 9.48px 28px;
+    background: $BGC_HEADER_ICON;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background: #241f80;
     }
+  }
 }

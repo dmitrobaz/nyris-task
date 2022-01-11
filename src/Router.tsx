@@ -3,13 +3,13 @@ import { Route, Routes } from 'react-router-dom';
 
 import { Main, Results } from './pages';
 
-const Router: React.FC = () => {
+const Router: React.FC = (): JSX.Element => {
   return (
     <Routes>
       <Route path="/" element={<Main />} />
       <Route path="/results" element={<Results />} />
     </Routes>
   );
-}
+};
 
 export default Router;

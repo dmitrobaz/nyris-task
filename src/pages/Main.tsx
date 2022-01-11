@@ -1,21 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { AddPhoto, Header, Search } from '../components';
-
-import combined_shape from '../assets/img/combined_shape.png'
-
+import { AddPhoto, Header } from '../components';
 
 const Main: React.FC = (): JSX.Element => {
-    return (
-        <>
-            <Header />
-            <Search
-                icon={combined_shape}
-                description='Search by any name, category, SKU or keyword.'
-            />
-            <AddPhoto />
-        </>
-    );
+  const [searchValue, setSearchValue] = useState<string>('');
+  return (
+    <>
+      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
+      <AddPhoto />
+    </>
+  );
 };
 
 export default Main;

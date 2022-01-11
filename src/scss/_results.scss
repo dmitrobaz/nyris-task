@@ -1,72 +1,102 @@
 .button-score-up {
-    width: 16px;
-    height: 16px;
-    margin-right: 16px;
+  width: 16px;
+  height: 16px;
+  margin-right: 16px;
 }
 
 .button-score-down {
-    width: 16px;
-    height: 16px;
-    transform: rotate(180deg);
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
 }
 .button-increase-img {
-    position: absolute;
-    top: 182px;
-    left: 16px;
+  position: absolute;
+  top: 177px;
+  left: 12px;
 }
 .button-comment {
-    margin-left: 8px;
+  margin-left: 8px;
 }
-.results {
-    display: flex;
-    justify-content: center;
-    margin: 96px auto;
-    background: $BGC_RESULT;
-    &-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-    }
-    &-card {
-        position: relative;
-        width: 240px;
-        height: 352px;
-        margin: 24px 25px;
-        background: $BGC_RESULT_CARD;
 
-        &-img {
-            width: 240px;
-            height: 230px;
-            img {
-                width: 240px;
-                height: 230px;
-            }
-        }
-        &-id {
-            font-weight: 500;
-            font-size: 12px;
-            line-height: 16px;
-            letter-spacing: 0.342857px;
-            padding: 13px 16px 8px;
-            color: $COLOR_RESULT;
-        }
-        &-title {
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 16px;
-            letter-spacing: 0.4px;
-            color: #1e1f31;
-            padding: 0 16px 5px;
-        }
-        &-button-wrapper {
-            display: flex;
-            margin: 0 16px;
-            justify-content: space-between;
-            align-items: center;
-        }
-        &-score-btn {
-        }
-        &-communication-btn {
-        }
+.results {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  background: $BGC_RESULT;
+  width: 1160px;
+  min-height: 62vh;
+  padding-top: 304px;
+  &-no-result {
+    padding: 100px 10px;
+    font-size: 40px;
+  }
+  &-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  &-card {
+    position: relative;
+    width: 240px;
+    height: 352px;
+    background: $BGC_RESULT_CARD;
+    margin: 25px;
+    &-img {
+      width: 240px;
+      height: 230px;
+      img {
+        width: 240px;
+        height: 230px;
+      }
     }
+    &-id {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.342857px;
+      padding: 13px 16px 8px;
+      color: $COLOR_RESULT;
+    }
+    &-title {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0.4px;
+      color: #1e1f31;
+      padding: 0 16px 5px;
+      width: 208px;
+      overflow-wrap: break-word;
+      height: 32px;
+      overflow: hidden;
+      margin-bottom: 2px;
+    }
+    &-button-wrapper {
+      display: flex;
+      margin: 0 16px;
+      justify-content: space-between;
+      align-items: center;
+      bottom: 24px;
+      left: 16px;
+    }
+    &-score-btn {
+    }
+    &-communication-btn {
+    }
+  }
+}
+
+@media (max-width: 1160px) {
+  .results {
+    width: 78vw;
+  }
+}
+@media (max-width: 1115px) {
+  .results {
+    width: 55vw;
+  }
+}
+@media (max-width: 1055px) {
+  .results {
+    width: 27vw;
+  }
 }

@@ -5,7 +5,11 @@
 @import "./photo-drag";
 @import "./results";
 @import "./button";
+@import "./footer";
 
+#root {
+    background-color: #fafafa;
+}
 * {
     padding: 0;
     margin: 0;
