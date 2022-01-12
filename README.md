@@ -12,5 +12,5 @@ You will also see any lint errors in the console.
 
 ### `Accessible pages:`
 
-Main page [http://localhost:3000/](http://localhost:3000/)
+Main page [http://localhost:3000/](http://localhost:3000/) \
 Results page [http://localhost:3000/results](http://localhost:3000/results)
