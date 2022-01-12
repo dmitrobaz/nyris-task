@@ -1,16 +1,12 @@
-import React, { SetStateAction, useEffect, useState } from 'react';
+import React from 'react';
+import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 import { Search } from '..';
 
 import logo from '../../assets/img/logo.svg';
 
-interface IHeader {
-  searchValue: string;
-  setSearchValue: React.Dispatch<SetStateAction<string>>;
-}
-
-const Header: React.FC<IHeader> = ({ searchValue, setSearchValue }): JSX.Element => {
-  const isMainPage = window.location.pathname === '/';
+const Header: React.FC = (): JSX.Element => {
+  const isMainPage = useLocation().pathname === '/';
 
   const navigate = useNavigate();
 
@@ -25,7 +21,7 @@ const Header: React.FC<IHeader> = ({ searchValue, setSearchValue }): JSX.Element
           <img src={logo} alt="Nyris logo" />
         </button>
       </section>
-      <Search isMainPage={isMainPage} value={searchValue} setValue={setSearchValue} />
+      <Search />
     </header>
   );
 };

@@ -15,10 +15,15 @@ const AddPhoto: React.FC = (): JSX.Element => {
       <p className="photo-drag-icon">
         <img src={search_image} alt="Chose photo icon" />
       </p>
-      <p className="photo-drag-select-wrapper">
-        <button className="photo-drag-select-button">Choose photo</button>
-        <span className="photo-drag-select-text">or drag & drop it here</span>
-      </p>
+      <form onSubmit={(e) => e.preventDefault()} className="photo-drag-select-wrapper">
+        <input type="file" id="file" name="file" className="display-none" />
+        <button
+          onClick={() => document.getElementById('file')?.click()}
+          className="photo-drag-select-button">
+          Choose photo
+        </button>
+        <label className="photo-drag-select-text">or drag & drop it here</label>
+      </form>
       <p className="photo-drag-options-descr">You can try with these options too:</p>
       <p className="photo-drag-options-wrapper">
         {imgArr.map((img: string, index: number) => {

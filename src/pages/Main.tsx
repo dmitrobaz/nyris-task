@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { AddPhoto, Header } from '../components';
 
+import { getItemsConfig } from '../store/items/actions';
+
+import response from '../config/response.json';
+
 const Main: React.FC = (): JSX.Element => {
-  const [searchValue, setSearchValue] = useState<string>('');
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getItemsConfig(response.results));
+  }, []);
   return (
     <>
-      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
+      <Header />
       <AddPhoto />
     </>
   );

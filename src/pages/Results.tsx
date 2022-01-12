@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Footer, Header, ResultCard, Search } from '../components';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { Footer, Header, ResultCard } from '../components';
+
+import { IItemsStore, ISearchStore, IItems } from '../types/interface';
+
+import { getItemsConfig } from '../store/items/actions';
 
 import response from '../config/response.json';
 
 const Results: React.FC = (): JSX.Element => {
-  const [searchValue, setSearchValue] = useState<string>('');
-  const [config, setConfig] = useState(response.results);
+  const items = useSelector(({ items }: IItemsStore) => items.data);
+  const search = useSelector(({ search }: ISearchStore) => search.value);
+
+  const [config, setConfig] = useState<IItems[]>(items);
+
+  const dispatch = useDispatch();
 
   const filteredCategory = (value: string) => {
     if (value !== '') {
       const inputValueLowerCase = value.toLowerCase();
-      return response.results.filter((item) => {
+      return items.filter((item: IItems) => {
         const lowerCaseString = item.categories[0].toLowerCase();
         return lowerCaseString.indexOf(inputValueLowerCase) > -1;
       });
@@ -20,16 +30,22 @@ const Results: React.FC = (): JSX.Element => {
   };
 
   useEffect(() => {
-    setConfig(filteredCategory(searchValue));
-  }, [searchValue]);
+    setConfig(filteredCategory(search));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search]);
+
+  useEffect(() => {
+    dispatch(getItemsConfig(response.results));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
-      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
+      <Header />
       <main className="results">
         <ul className="results-wrapper">
           {config.length > 0 ? (
-            config.map((item, index: number) => {
+            config.map((item: IItems, index: number) => {
               return (
                 <ResultCard
                   key={index}

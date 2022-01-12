@@ -1,21 +1,24 @@
 import React from 'react';
-import { useNavigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router';
+
+import { setSearchValue } from '../../store/search/actions';
+
+import { ISearchStore } from '../../types/interface';
 
 import filters from '../../assets/img/icons/filters.svg';
 import share from '../../assets/img/icons/share.svg';
 import clear from '../../assets/img/icons/clear.svg';
 import combined_shape from '../../assets/img/combined_shape.svg';
 
-interface ISearchProps {
-  icon?: string;
-  description?: string;
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
-  isMainPage?: boolean;
-}
+const Search: React.FC = (): JSX.Element => {
+  const dispatch = useDispatch();
+  const search = useSelector(({ search }: ISearchStore) => search.value);
+  const isMainPage = useLocation().pathname === '/';
 
-const Search: React.FC<ISearchProps> = ({ value, setValue }): JSX.Element => {
-  const isMainPage = window.location.pathname === '/';
+  const onChangeHandler = (value: string) => {
+    dispatch(setSearchValue(value));
+  };
 
   const navigate = useNavigate();
 
@@ -31,12 +34,12 @@ const Search: React.FC<ISearchProps> = ({ value, setValue }): JSX.Element => {
           type="text"
           className="search-input"
           placeholder="Search in Trumpf catalogue"
-          value={value}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
+          value={search}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChangeHandler(e.target.value)}
         />
 
-        {value !== '' ? (
-          <button onClick={() => setValue('')} className="button clear-button">
+        {search !== '' ? (
+          <button onClick={() => dispatch(setSearchValue(''))} className="button clear-button">
             <img className="icon-img" src={clear} alt="" />
           </button>
         ) : (
@@ -45,7 +48,7 @@ const Search: React.FC<ISearchProps> = ({ value, setValue }): JSX.Element => {
           </button>
         )}
 
-        {value !== '' && (
+        {search !== '' && (
           <button
             onClick={() => isMainPage && navigate('/results')}
             className="button share-button">

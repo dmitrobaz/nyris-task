@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import footerButton from '../../assets/img/footer-button.svg';
 
-interface IFooter {
-  config: any;
-}
+import {IFooter} from '../../types/interface'
 
 const Footer: React.FC<IFooter> = ({ config }): JSX.Element => {
   const [countResults, setCountResults] = useState<number>(0);
